@@ -3,21 +3,30 @@
 
         
 {% block content %}
+<section class="hero is-medium has-background">
+    <img class="is-background is-medium" style="width: 100%" src="/media/login_background.jpg">
+    <div class="columns">
 
-<div class="row center-align">
+            <div class=" hero-body is-medium is-overlay has-text-centered">
+    <div class="container ">
+<div class="row center-align is-vcentered">
     <form method="post" action="" role="form" class="col s12">
     {% csrf_token %}
-    <h3>Login</h3>
+    <p class="title" style = "border: 10px solid black; padding: 6px 14px; display: inline-block; color: black; font-weight: 700; text-transform: uppercase;">
+        Login
+      </p>
       <div class="row">
-        <div class="input-field col s12">
+          </br> </br>
+        <div class="input-field is-centered form-control">
+            <label for="username" style = "color: black; font-weight: 700; text-transform: uppercase;">Username</label>
           {{ form.username }}
-          <label for="username">Username</label>
+
         </div>
       </div>
        <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field is-centered form-control">
+            <label for="username" style = "color: black; font-weight: 700; text-transform: uppercase;">Password</label>
           {{ form.password }}
-          <label for="password">Password</label>
         </div>
       </div>
       {% if form.errors %}
@@ -29,7 +38,7 @@
       {% endif %}
         <div class="field">
       <p class="control">
-        <button type="submit" value="login" class="button is-success">
+      </br><button type="submit" value="login" class="button is-black">
           Login
         </button>
       </p>
@@ -39,7 +48,11 @@
 
 
 
-    <a href="{% url 'signup' %}" class="button is-info">Create an account</a>    </form>
+    <a href="{% url 'signup' %}" class="button is-black">Create an account</a>    </form>
   </div>
-
+</div>
+    </div>
+    </div>
+</section>
+    <hr style="background-color:#000000; height:10px; width:100%;">
 {% endblock %}

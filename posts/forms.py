@@ -2,6 +2,7 @@ from django import forms
 from posts.models import Post
 from ckeditor.widgets import CKEditorWidget
 
+T_or_P = [('Tutor', 'Tutor'), ('Student', 'Student')]
 
 class NewPostForm(forms.ModelForm):
     picture = forms.ImageField(required=False)
@@ -14,7 +15,7 @@ class NewPostForm(forms.ModelForm):
         fields = ('subject', 'picture', 'caption', 'tags')
 
 
-VIDEO_OR_PERSON = [('Video', 'Video'), ('In Person', 'In Person'), ('Both', 'Both')]
+
 
 SCHOOL_LEVEL = [('elementary school', 'Elementary School'), ('middle school', 'Middle School'), ('high school', 'High School')]
 

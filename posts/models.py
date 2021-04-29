@@ -47,6 +47,7 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     picture = models.ImageField(blank=True, null=True, upload_to=user_directory_path, verbose_name='Picture')
 
+
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         SIZE = 250, 250
@@ -58,12 +59,6 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_detail', args=[str(self.id)])
-
-
-
-
-
-
 
 
 class Follow(models.Model):

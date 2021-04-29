@@ -87,6 +87,10 @@ def NewPost(request):
             caption = form.cleaned_data.get('caption')
             tags_form = form.cleaned_data.get('tags')
             subject = form.cleaned_data.get('subject')
+            is_tutoring = form.cleaned_data.get('is_tutoring')
+            looking_for = form.cleaned_data.get('looking_for')
+            max_price = form.cleaned_data.get('max_price')
+            min_price = form.cleaned_data.get('min_price ')
 
             tags_list = list(tags_form.split(', '))
 

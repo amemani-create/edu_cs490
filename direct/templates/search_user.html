@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <section class="hero is-medium has-background is-halfheight">
+    <img class="is-background is-medium" style="width: 100%" src="/media/Messages_background.jpg">
+    <div class="columns">
+
+            <div class=" hero-body is-medium is-overlay has-text-centered">
+    <div class="container">
+      <p class="title" style = "border: 10px solid white; padding: 6px 14px; display: inline-block; color: white; font-weight: 700; text-transform: uppercase;">
+        Messages
+      </p>
+    </div>
+  </div>
+            </div>
+         </div>
+    </section>
+    <hr style="background-color:#000000; height:10px; width:100%;">
+    </br>
+ <div class="columns is-mobile is-centered">
+  <div class="column is-four-fifths">
+
+
+<div class="field has-addons">
+<form>
+  <div class="control">
+    <input class="input is-large" name="q" type="text" placeholder="Search users..." value="{{ request.GET.q }}">
+  </div>
+  <div class="control">
+  	<button type="submit" class="button is-black">Search</button>
+  </div>
+  </form>
+</div>
+
+
+</div>
+</div>
+
+<div class="columns is-mobile is-centered">
+  <div class="column is-four-fifths">
+
+{% for user in users %}
+<div class="box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+          {% if user.profile.picture %}
+            <img src="{{ user.profile.picture.url }}" alt="Placeholder image">
+          {% else %}
+            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          {% endif %}
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>@{{ user.user.username }}</strong>{% if user.user.profile.first_name %} <small>{{ user.user.profile.first_name }} {{ user.user.profile.last_name }}</small>{% endif %}
+        </p>
+        <small><a href="{% url 'new_conversation' user.user.username %}" class="button is-success is-small">Send Message</a></small>
+      </div>
+    </div>
+  </article>
+</div>
+{% endfor %}
+	
+
+</div>
+</div>
+
+{% endblock %}

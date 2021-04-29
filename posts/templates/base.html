@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BETA</title>
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+  <!--This is the NavBar section -->
+  <section class="hero is-medium has-text-centered has-background-black" >
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item has-text-weight-bold has-text-white-bis">BETA</a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+<!--Clearly listed options on NavBar -->
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a href="{% url 'index' %}"class="navbar-item has-text-white-bis">
+        Stream
+      </a>
+
+      <a href="{% url 'search_content' %}" class="navbar-item has-text-white-bis">
+        Search
+      </a>
+      <a href="{% url 'show_notifications' %}" class="navbar-item has-text-white-bis">
+        Notifications
+          {% if count_notifications %}
+          <span class="badge">{{ count_notifications }}</span>
+          {% endif %}
+      </a>
+      <a href="{% url 'inbox' %}" class="navbar-item has-text-white-bis">
+        Inbox
+          {% if directs_count %}
+          <span class="badge">{{ directs_count }}</span>
+          {% else %}
+          <span class="badge">0</span>
+          {% endif %}
+      </a>
+      <a href="{% url 'profile' request.user %}"class="navbar-item has-text-white-bis">
+        Profile: {{ request.user }}
+      </a>
+      <a href="{% url 'new_post' %}" class="navbar-item has-text-white-bis">
+        New Post
+      </a>
+    <div class="navbar-item has-dropdown is-hoverable has-text-white-bis">
+        <a class="navbar-link has-text-white-bis">Explore More Tools</a>
+
+        <div class="navbar-dropdown">
+    <a href="{% url 'news' %}"class="navbar-item">
+        News
+      </a>
+    <a href="{% url 'look_up_school' %}"class="navbar-item">
+        Top Schools
+      </a>
+    <a href="{% url 'custom_search' %}"class="navbar-item ">
+        Google Search
+      </a>
+  </div>
+      </div>
+
+
+<!--options on settings dropdown -->
+      <div class="navbar-item has-dropdown is-hoverable has-text-white-bis">
+        <a class="navbar-link has-text-white-bis">
+          Settings
+        </a>
+
+        <div class="navbar-dropdown">
+          <a href="{% url 'change_password' %}" class="navbar-item">
+            Change Password
+          </a>
+          <hr class="navbar-divider">
+          <a href="{% url 'logout' %}"class="navbar-item">
+            Logout
+          </a>
+        </div>
+      </div>
+    </div>
+<!--End of settings dropdown -->
+      <!--right side of nav bar -->
+  </div>
+</nav>
+  </section>
+     <!--End of NavBar section -->
+
+  {% block content %}
+  {% endblock %}
+
+
+
+  </body>
+</html>

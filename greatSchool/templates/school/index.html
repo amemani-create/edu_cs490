@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+ <html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href={% static '/css/school.css' %}>
+           <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- google fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- fontawesome -->
+        <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+    </head>
+    <br>
+
+        <!-- header -->
+        <section class="hero is-medium has-text-centered has-background-black" >
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item has-text-weight-bold has-text-white-bis">BETA</a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+<!--Clearly listed options on NavBar -->
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a href="{% url 'index' %}"class="navbar-item has-text-white-bis">
+        Stream
+      </a>
+
+      <a href="{% url 'search_content' %}" class="navbar-item has-text-white-bis">
+        Search
+      </a>
+      <a href="{% url 'show_notifications' %}" class="navbar-item has-text-white-bis">
+        Notifications
+          {% if count_notifications %}
+          <span class="badge">{{ count_notifications }}</span>
+          {% endif %}
+      </a>
+      <a href="{% url 'inbox' %}" class="navbar-item has-text-white-bis">
+        Inbox
+          {% if directs_count %}
+          <span class="badge">{{ directs_count }}</span>
+          {% else %}
+          <span class="badge">0</span>
+          {% endif %}
+      </a>
+      <a href="{% url 'profile' request.user %}"class="navbar-item has-text-white-bis">
+        Profile: {{ request.user }}
+      </a>
+      <a href="{% url 'new_post' %}" class="navbar-item has-text-white-bis">
+        New Post
+      </a>
+    <div class="navbar-item has-dropdown is-hoverable has-text-white-bis">
+        <a class="navbar-link has-text-white-bis">Explore More Tools</a>
+
+        <div class="navbar-dropdown">
+    <a href="{% url 'news' %}"class="navbar-item">
+        News
+      </a>
+    <a href="{% url 'look_up_school' %}"class="navbar-item">
+        Top Schools
+      </a>
+    <a href="{% url 'custom_search' %}"class="navbar-item ">
+        Google Search
+      </a>
+  </div>
+      </div>
+
+
+<!--options on settings dropdown -->
+      <div class="navbar-item has-dropdown is-hoverable has-text-white-bis">
+        <a class="navbar-link has-text-white-bis">
+          Settings
+        </a>
+
+        <div class="navbar-dropdown">
+          <a href="{% url 'change_password' %}" class="navbar-item">
+            Change Password
+          </a>
+          <hr class="navbar-divider">
+          <a href="{% url 'logout' %}"class="navbar-item">
+            Logout
+          </a>
+        </div>
+      </div>
+    </div>
+<!--End of settings dropdown -->
+      <!--right side of nav bar -->
+  </div>
+</nav>
+          </section>
+<section class="hero is-medium has-background is-halfheight">
+    <img class="is-background is-medium" style="width: 100%" src="https://i.postimg.cc/T3B3WFcv/2.jpg">
+    <div class="columns">
+
+            <div class=" hero-body is-medium is-overlay has-text-centered">
+    <div class="container">
+      <p class="title" style = "border: 10px solid white; padding: 6px 14px; display: inline-block; color: white; font-weight: 700; text-transform: uppercase;">
+        BEST SCHOOLS
+      </p>
+        <br><br><span class="des">Best school recommendations</span>
+    </div>
+  </div>
+            </div>
+         </div>
+    </section>
+
+
+</br>
+     <form method="POST">
+
+
+                           <td>{% csrf_token %}
+                 <input type="text" name="zipCode" class="roundCorner">
+                </td>
+                <td>
+                    <button type="submit" class="buttons" style="display: block; text-align: center; width: auto; padding-left:10px; padding-right:10px;"> Enter Zip Code</button>
+                </td>
+                </form>
+
+
+<br>
+        <br>
+
+
+<br>
+        <br>
+
+            <section class = "main-container-right">
+                <h2></h2>
+                {% for name,school_summary,type,level,street,city,state,state,zipcode,phone,county,overview_url,rating in schoolInfo %}
+                <article>
+                    <h4>{{ name}} </h4>
+                    <div>
+                        <h2>{{ school_summary}}</h2>
+
+                        <p>Type of school: {{ type}} <br>
+                        Grades tought: {{ level}} <br>
+                        Address: {{ street}} <br>
+                        City: {{ city}}<br>
+                        State: {{ state}} <br>
+                        Area code: {{ zipcode}} <br>
+                        Phone number: {{ phone}} <br>
+                        County: {{ county}} <br>
+                        Link to see more details: {{ overview_url}} <br>
+                        Rating for the school: {{ rating}}
+</p>
+
+
+</div>
+         </article>
+
+{% endfor %}
+            </section>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br>
+        </main>
+
+        <footer>
+            <div class = "footer-container">
+                <div class = "footer-left">
+                    <h2>BETA</h2>
+                    <p>Beta is here to provide you with the best school recommendations possible. We do not claim that any of these schools are our own, but instead, they are free resources for you. </p>
+                </div>
+
+                <div class = "footer-right">
+                    <h2>Subscribe</h2>
+                    <p>Subscribe to receive more school recommendations from Beta!</p>
+
+                    <div>
+                        <input type = "text" placeholder = "Email Address">
+                        <i class = "fas fa-envelope"></i>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </footer>
+
+
+    </body>
+</html>

@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+ <html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static  '/css/news.css'%}">
+        <!-- google fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- fontawesome -->
+        <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+        <script src="{% static '/js/news.js' %}"></script>
+    </head>
+    <body>
+
+        <!-- header -->
+        <header>
+            <div class = "navigation-container">
+                <div class = "top-head">
+                    <div class = "web-name">
+                        <h1>BETA</h1>
+                    </div>
+
+                    <div class = "ham-btn">
+                        <span>
+                            <i class = "fas fa-bars"></i>
+                        </span>
+                    </div>
+
+                    <div class = "times-btn">
+                        <span>
+                            <i class = "fas fa-times"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- nav bar -->
+
+                <div class = "nav-bar" id = "nav-bar">
+                    <nav>
+                        <ul>
+                            <li><a href="{% url 'index' %}" >Stream</a></li>
+       <li><a href="{% url 'search_content' %}"  >Search</a></li>
+       <li><a href="{% url 'show_notifications' %}"  >Notifications{% if count_notifications %}<span class="badge">{{ count_notifications }}</span>{% endif %}</a></li>
+       <li><a href="{% url 'inbox' %}" >Inbox</a></li>
+       <li><a href="{% url 'profile' request.user %}" >Profile: {{ request.user }}</a></li>
+       <li><a href="{% url 'new_post' %}"  >New Post</a></li>
+       <li><a href="{% url 'news' %}" >News</a></li>
+       <li><a href="{% url 'look_up_school' %}" >Top Schools</a></li>
+       <li><a href="{% url 'custom_search' %}" >Google Search</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+</div>
+        </header>
+
+        <section class = "banner">
+            <div class = "banner-main-content">
+                <h2>GET THE WORLD'S LATEST EDUCATION NEWS</h2>
+                <h3>World's Leading Education News Portal</h3>
+
+                <button>
+                    <a href = "https://www.newscientist.com/section/news/">Know More</a>
+                </button>
+
+                <div class = "current-news-head">
+                    <h3>The move comes after the American Federation of Teachers received a letter from the health agency.<span>by Lauren Camera</span></h3>
+
+                    <h3>Public Schools Tiptoe Back to Life <span>by Lauren Camera</span></h3>
+
+                    <h3>CDC Updates School Distancing Guidelines <span>by Kristin A. Bouchard</span></h3>
+
+                    <h3>Wisconsin Focuses on Education <span>by eric mack</span></h3>
+                </div>
+            </div>
+
+            <div class = "banner-sub-content">
+                <div class = "hot-topic">
+                    <img src = "https://images.newscientist.com/wp-content/uploads/2021/04/21153119/hm0cdt_web.jpg" alt = "">
+
+                    <div class = "hot-topic-content">
+                        <h2>Chinese air pollution data was altered, statistical analysis suggests</h2>
+
+                        <h3>New Topic 1</h3>
+                        <p>The handwriting style is consistent throughout the Great Isaiah Scroll, a 2200-year-old document found near the Dead Sea – but AI analysis of the text confirms it was actually written by two scribes</p>
+                        <a href = "https://www.newscientist.com/article/2275298-ai-analysis-shows-two-scribes-wrote-one-of-the-dead-sea-scrolls/">Read More</a>
+                    </div>
+                </div>
+
+                <div class = "hot-topic">
+                    <img src = "https://images.newscientist.com/wp-content/uploads/2021/04/21154001/21-april_china-air-pollution.jpg" alt = "">
+
+                    <div class = "hot-topic-content">
+                        <h2>Chinese air pollution data was altered, statistical analysis suggests</h2>
+
+                        <h3>New Topic 1</h3>
+                        <p>A statistical analysis of air pollution data gathered in Chinese cities between 2015 and 2017 has shown that discrepancies between official data and readings taken at US embassies are probably due to data being altered</p>
+                        <a href = "https://www.newscientist.com/article/2275299-chinese-air-pollution-data-was-altered-statistical-analysis-suggests/">Read More</a>
+                    </div>
+                </div>
+
+                <div class = "hot-topic">
+                    <img src = "https://images.newscientist.com/wp-content/uploads/2021/04/21121848/gettyimages-170729806_web.jpg" alt = "">
+
+                    <div class = "hot-topic-content">
+                        <h2>Algorithms can sway people when making online dating decisions</h2>
+
+                        <h3>New Topic 1</h3>
+                        <p>Recommendation algorithms seem to have the power to influence people, suggest experiments in which people used them to choose partners to date or fictional politicians to vote for</p>
+                        <a href = "https://www.newscientist.com/article/2275158-algorithms-can-sway-people-when-making-online-dating-decisions/">Read More</a>
+                    </div>
+                </div>
+
+                <div class = "hot-topic">
+                    <img src = "https://images.newscientist.com/wp-content/uploads/2021/04/21173047/21-april_daily.jpg" alt = "">
+
+                    <div class = "hot-topic-content">
+                        <h2>Covid-19 news: Vaccine likely to have slashed UK hospitalisations</h2>
+
+                        <h3>New Topic 1</h3>
+                        <p>The latest coronavirus news updated every day including coronavirus cases, the latest news, features and interviews from New Scientist and essential information about the covid-19 pandemic</p>
+                        <a href = "https://www.newscientist.com/article/2237475-covid-19-news-india-reports-a-record-number-of-new-cases/">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+
+
+            <section class = "main-container-right">
+                <h2>Latest Stories</h2>
+
+  {% for newsTitle, description,url, img in Newslist %}
+                <article>
+
+                    <h4>just in </h4>
+                    <div>
+
+                        <h2>{{ newsTitle }}</h2>
+
+                        <p>{{ description }}</p>
+
+                        <a href = "{{ url }}">Read More <span>>></span></a>
+                    </div>
+                    <img src = "{{ img }}">
+
+
+                </article>
+ {% endfor %}
+
+            </section>
+        </main>
+
+        <footer>
+            <div class = "footer-container">
+                <div class = "footer-left">
+                    <h2>BETA</h2>
+                    <p>Beta is here to provide you with the best news possible. We do not claim that any of these news are our own, but instead, they are free resources for you. </p>
+                </div>
+
+                <div class = "footer-right">
+                    <h2>Subscribe</h2>
+                    <p>Subscribe to receive more news from Beta!</p>
+
+                    <div>
+                        <input type = "text" placeholder = "Email Address">
+                        <i class = "fas fa-envelope"></i>
+                    </div>
+                </div>
+            </div>
+
+
+        </footer>
+
+        <script src="../js/news.js" async defer></script>
+    </body>
+</html>

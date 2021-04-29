@@ -43,7 +43,7 @@
 				{% endif %}
                                 <div class="media-content">
                                     <p class="title is-4 no-padding"><a class="has-text-black" href="{% url 'post_detail' post.id %}">{{post.subject}}</p>
-                                    <p><span class="title is-6"><a href="{% url 'profile' request.user %}">@{{ post.user.username }}</a></span></p>
+                                    <p><span class="title is-6"><a href="{% url 'profile' post.user %}">@{{ post.user.username }}</a></span></p>
                                     <p class="subtitle is-7"><small><time datetime="2016-1-1">{{ post.posted }}</time></small></p>
                                 </div>
                             </div>
